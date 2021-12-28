@@ -1,0 +1,18 @@
+Design patterns to add:
+	Behavioral:
+		-Template
+		-Strategy
+		-Observer
+		-Command
+		-Iterator
+		-State
+
+	Extra:
+		When finished with dp's studied in the course, look for others.	
+
+Project related:
+	-Arrange notes and doc according to the definitions in the lectures - link each entity to its definition
+	-Arrange output - maybe menu?
+	-Annotations? Explanations?
+	-Documentation
+	-Improve Readme - learn markdown conventions. Add examples and explanations to Readme file.

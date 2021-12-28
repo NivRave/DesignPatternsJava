@@ -9,6 +9,8 @@ import CreationalPatterns.Prototype.*;
 import CreationalPatterns.Singleton.*;
 import StructuralPatterns.Adapter.*;
 import StructuralPatterns.Composite.*;
+import StructuralPatterns.Decorator.*;
+import StructuralPatterns.Proxy.*;
 
 public class Main {
 
@@ -106,9 +108,10 @@ public class Main {
 				"The log Arraylist is equal between logger1 & logger2: " + logger1.getLog().equals(logger2.getLog()));
 		System.out.println();
 		System.out.println();
-		
+
 		/* Structural design patterns */
 		/* Adapter Pattern: */
+		System.out.println("The output for the Adapter pattern example:");
 		IUsFormat fit = new FitData();// US format data
 		IUsFormat fat = new FatData();// US format data
 		FormatAdapter fitAdapter = new FormatAdapter(fit);// Eu adapted format data
@@ -117,27 +120,30 @@ public class Main {
 		System.out.println("Fit: Speed = " + fit.getSpeed() + ", Weight = " + fit.getWeight());
 		System.out.println("Fat: Speed = " + fat.getSpeed() + ", Weight = " + fat.getWeight());
 		System.out.println("Data in Us format (KMH + KG):");
-		System.out.println("Fit: Speed = " + String.format("%.2f",fitAdapter.getSpeed()) + ", Weight = " + String.format("%.2f",fitAdapter.getWeight()));
-		System.out.println("Fat: Speed = " + String.format("%.2f",fatAdapter.getSpeed()) + ", Weight = " + String.format("%.2f",fatAdapter.getWeight()));
+		System.out.println("Fit: Speed = " + String.format("%.2f", fitAdapter.getSpeed()) + ", Weight = "
+				+ String.format("%.2f", fitAdapter.getWeight()));
+		System.out.println("Fat: Speed = " + String.format("%.2f", fatAdapter.getSpeed()) + ", Weight = "
+				+ String.format("%.2f", fatAdapter.getWeight()));
 		System.out.println();
 		System.out.println();
-		
+
 		/* Composite Pattern: */
-		StoredItem mainDir = new DirectoryItem("Dir 1 in Tier 1");//Main dir
-		StoredItem subDir1 = new DirectoryItem("Dir 1 in Tier 2");//Nested in Tier 1
-		StoredItem subDir2 = new DirectoryItem("Dir 1 in Tier 3");//Nested in Tier 2
-		StoredItem subDir3 = new DirectoryItem("Dir 2 in Tier 3");//Nested in Tier 2
+		System.out.println("The output for the Composite pattern example:");
+		StoredItem mainDir = new DirectoryItem("Dir 1 in Tier 1");// Main dir
+		StoredItem subDir1 = new DirectoryItem("Dir 1 in Tier 2");// Nested in Tier 1
+		StoredItem subDir2 = new DirectoryItem("Dir 1 in Tier 3");// Nested in Tier 2
+		StoredItem subDir3 = new DirectoryItem("Dir 2 in Tier 3");// Nested in Tier 2
 		StoredItem mainFile1 = new FileItem("File1 in Tier 1");
 		StoredItem mainFile2 = new FileItem("File2 in Tier 1");
 		StoredItem subFile1 = new FileItem("File1 in Tier 2");
 		StoredItem subFile2 = new FileItem("File1 in Tier 3");
 		StoredItem subFile3 = new FileItem("File1 in Tier 3");
 
-		//Chain directories
+		// Chain directories
 		mainDir.Add(subDir1);
 		subDir1.Add(subDir2);
 		subDir1.Add(subDir3);
-		//Add files to desired directories
+		// Add files to desired directories
 		mainDir.Add(mainFile1);
 		mainDir.Add(mainFile2);
 		subDir1.Add(subFile1);
@@ -145,12 +151,43 @@ public class Main {
 		subDir2.Add(subFile3);
 		System.out.println();
 
-		//Print hierarchy - starting from Main directory. Will print each file and Recursively print the nested files in each directory 
+		// Print hierarchy - starting from Main directory. Will print each file and
+		// Recursively print the nested files in each directory
 		mainDir.printContainingFiles(0);
-		
+
 		System.out.println();
-		mainFile1.Add(subFile1);//Invalid addition - cannot add to file, only to directory
-		mainDir.remove(mainFile1);//Remove from directory - will work
-		mainFile2.remove(subFile3);//Invalid removal - cannot remove from file, only from directory
+		mainFile1.Add(subFile1);// Invalid addition - cannot add to file, only to directory
+		mainDir.remove(mainFile1);// Remove from directory - will work
+		mainFile2.remove(subFile3);// Invalid removal - cannot remove from file, only from directory
+		System.out.println();
+		System.out.println();
+
+		/* Decorator Pattern: */
+		System.out.println("The output for the Decorator pattern example:");
+		ICar honda = new HondaCar();// Create regular car - Honda
+		ICar turboHonda = new TurboCarDecorator(honda);// Create Decorated car (Turbo) based on the Honda car
+
+		System.out.println("Driving the Honda:");
+		honda.drive();
+		System.out.println("Driving the Honda with Turbo:");
+		turboHonda.drive();
+		System.out.println();
+		System.out.println();
+
+		/* Proxy Pattern: */
+		System.out.println("The output for the Proxy pattern example:");
+		IServerActions user = new ProxyPerformAction(false);// Create user as non-admin, will only be able to read
+		IServerActions admin = new ProxyPerformAction(true);// Create user as Admin with permissions to read/delete/add
+		String[] actions = { "read", "add", "delete" };// Action array to be performed by each user
+		System.out.println();
+		System.out.println("User attempting to perform read->add->delete actions:");
+		for (String action : actions) {
+			user.performAction(action);
+		}
+		System.out.println();
+		System.out.println("Admin attempting to perform read->add->delete actions:");
+		for (String action : actions) {
+			admin.performAction(action);
+		}
 	}
 }
