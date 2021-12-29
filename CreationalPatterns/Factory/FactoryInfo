@@ -1,0 +1,14 @@
+The Factory Method design pattern belongs to the Creational patterns family.
+It defines an interface for creating an object, but lets subclasses decide which class to instantiate.
+It is useful when:
+	A class can't anticipate the class of objects it will create
+	A class wants its subclasses to specify the objects it creates
+The example used in this project:
+	Creating a shape factory object to create different shapes with known size and drawing each,
+	without defining specific shapes, just the IShape object, until the moment of creation.
+The structure and pattern roles in this example:
+	Product interface: IShape
+	Concrete products: Circle, Rectangle, Triangle
+	Creator/Factory: ShapeFactory
+Wikipedia link:
+https://en.wikipedia.org/wiki/Factory_method_pattern
