@@ -2,6 +2,9 @@ package Main;
 
 import java.util.ArrayList;
 
+import BehavioralPatterns.Observer.*;
+import BehavioralPatterns.Strategy.*;
+import BehavioralPatterns.Template.*;
 import CreationalPatterns.Factory.*;
 import CreationalPatterns.AbstractFactory.*;
 import CreationalPatterns.Builder.*;
@@ -189,5 +192,71 @@ public class Main {
 		for (String action : actions) {
 			admin.performAction(action);
 		}
+		System.out.println();
+		System.out.println();
+
+		/* Behavioral design patterns */
+		/* Template Pattern: */
+		System.out.println("The output for the Template pattern example:");
+		ComputerGame aoe2 = new AOE2Game();
+		ComputerGame mtw2 = new MTW2Game();
+		ComputerGame ra2y = new RA2YGame();
+		System.out.println("---Playing aoe2---");
+		aoe2.playGame();
+		System.out.println("---Playing mtw2---");
+		mtw2.playGame();
+		System.out.println("---Playing ra2y---");
+		ra2y.playGame();
+		System.out.println();
+		System.out.println();
+
+		/* Strategy Pattern: */
+		System.out.println("The output for the Strategy pattern example:");
+		INavigationStrategy directDrive = new DirectDriveNavigation();// Create a concrete instance of the Navigation
+																		// strategy
+		INavigationStrategy directFlight = new DirectFlightNavigation();// Create a concrete instance of the Navigation
+																		// strategy
+		INavigationStrategy driveThanFlight = new DriveFlyNavigation();// Create a concrete instance of the Navigation
+																		// strategy
+		Navigate parisToLondon = new Navigate("Paris", "London");// Context class holding the data needed for the
+																	// INavigationStrategy strategy interface methods
+																	// and an instance of INavigationStrategy concrete
+																	// implementation to hold the current navigation
+																	// strategy
+		System.out.println("Navigating from Paris to London in various methods:");
+		System.out.println("Method #1:");
+		parisToLondon.setStrategy(directFlight);
+		parisToLondon.navigate();
+		System.out.println("Method #2:");
+		parisToLondon.setStrategy(directDrive);
+		parisToLondon.navigate();
+		System.out.println("Method #3:");
+		parisToLondon.setStrategy(driveThanFlight);
+		parisToLondon.navigate();
+		System.out.println();
+		System.out.println();
+
+		/* Observer Pattern: */
+		Stock meta = new META(100);// Create concrete subject instance
+		Stock amazon = new AMAZON(80);// Create concrete subject instance
+		IInvestor bargainInvestor = new BargainInvestor();// Create concrete observer instance
+		IInvestor watcher = new Watcher();// Create concrete observer instance
+		IInvestor shortInvestor = new ShortInvestor();// Create concrete observer instance
+		meta.attach(shortInvestor);// Attach observer to subject
+		meta.attach(bargainInvestor);// Attach observer to subject
+		meta.attach(watcher);// Attach observer to subject
+		amazon.attach(shortInvestor);// Attach observer to subject
+		amazon.attach(bargainInvestor);// Attach observer to subject
+		amazon.attach(watcher);// Attach observer to subject
+		// Various price changes - each change activates update() in subject and than
+		// update() for each observer attached to it. The following actions are defined
+		// for each observer according to its own conditions
+		meta.setPrice(105);
+		meta.setPrice(70);
+		amazon.setPrice(55);
+		amazon.setPrice(175);
+		meta.setPrice(40);
+		amazon.setPrice(93);
+
 	}
 }

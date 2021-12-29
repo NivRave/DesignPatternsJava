@@ -1,8 +1,5 @@
 Design patterns to add:
 	Behavioral:
-		-Template
-		-Strategy
-		-Observer
 		-Command
 		-Iterator
 		-State
