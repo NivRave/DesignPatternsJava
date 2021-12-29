@@ -1,3 +1,26 @@
+/**
+ * This project is an implementation of the most commonly used design patterns.
+ * The patterns are divided in to 3 main categories: Creational, Structural and Behavioral.
+ * The Creational patterns are different patterns related to object creation and
+ * bringing an abstraction to the instantiation process,
+ * while making the system independent of how its objects are created, composed and represented.
+ * The Structural patterns are patterns that are concerned with how classes and objects are composed to form larger structures,
+ * while using inheritance to compose interfaces or implementations.
+ * The Behavioral patterns are concerned with algorithms and the assignment of responsibilities between objects,
+ * while describing not just patterns of objects or classes but also the patterns of communication between them.
+ * 
+ * My goal is to ease the understanding of those common design patterns with clear explanations and
+ * examples that will make the understanding process  more clear.
+ * 
+ * Each Pattern category sits in its own package, with each pattern inside a specific folder.
+ * The activation will be from the Main.java file and the output is printed to the console.
+ * 
+ * Note: There might be different ways to implement some of the design patterns - by a margin of syntax or names,
+ * those are the conventions I chose.
+ * 
+ * @author Niv Rave
+ * */
+
 package Main;
 
 import java.util.ArrayList;
