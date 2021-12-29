@@ -1,0 +1,18 @@
+The Abstract Factory design pattern belongs to the Creational patterns family.
+It provides an interface for creating families of realated or dependent objects without specifying their concrete types.
+It is useful when:
+	A system should be configured with one of multiple families of products.
+	A class library wants to reveal interfaces only, with no concrete types.
+The example used in this project:
+	Creating a meal factory that can create two different families of meals - meat and vegeterian.
+	Each type of meal can create various meals - each with it's special specific pair of main course and side dish.
+	The 'main' meal factory only knows that there are two different meals, but using each type's own meal factory the
+	specific, special meals are eventually created.
+The structure and pattern participants in this example:
+	Abstract Factory: MealFactory
+	Concrete Factories: MeatMealFactory, VegeterianMealFactory
+	Abstract Product: MainCourse, SideDish
+	Concrete Product (MainCourse): Steak, Pasta
+	Concrete Product (SideDish): ChickenSoup, Salad 
+Wikipedia link:
+https://en.wikipedia.org/wiki/Abstract_factory_pattern

@@ -6,7 +6,7 @@ It is useful when:
 The example used in this project:
 	Creating a shape factory object to create different shapes with known size and drawing each,
 	without defining specific shapes, just the IShape object, until the moment of creation.
-The structure and pattern roles in this example:
+The structure and pattern participants in this example:
 	Product interface: IShape
 	Concrete products: Circle, Rectangle, Triangle
 	Creator/Factory: ShapeFactory
