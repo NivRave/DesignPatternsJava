@@ -28,6 +28,9 @@ import java.util.ArrayList;
 import BehavioralPatterns.Observer.*;
 import BehavioralPatterns.Strategy.*;
 import BehavioralPatterns.Template.*;
+import BehavioralPatterns.Iterator.*;
+import BehavioralPatterns.Command.*;
+import BehavioralPatterns.State.*;
 import CreationalPatterns.Factory.*;
 import CreationalPatterns.AbstractFactory.*;
 import CreationalPatterns.Builder.*;
@@ -280,6 +283,73 @@ public class Main {
 		amazon.setPrice(175);
 		meta.setPrice(40);
 		amazon.setPrice(93);
+		System.out.println();
+		System.out.println();
+
+		/* Command Pattern: */
+		User calculatorUser = new User();
+		calculatorUser.printCalculatorValue();
+		calculatorUser.compute('+', 100);
+		calculatorUser.printCalculatorValue();
+		calculatorUser.compute('*', 5.5);
+		calculatorUser.printCalculatorValue();
+		calculatorUser.compute('-', 50);
+		calculatorUser.printCalculatorValue();
+		calculatorUser.compute('/', 20);
+		calculatorUser.printCalculatorValue();
+		calculatorUser.undo(2);
+		calculatorUser.printCalculatorValue();
+		calculatorUser.redo(1);
+		calculatorUser.printCalculatorValue();
+		System.out.println();
+		System.out.println();
+
+		/* Iterator Pattern: */
+		String fanRequests[] = { "Please send me a selfie!", "Please sign my photo!", "Come for a drink?",
+				"Please say hi!", "I LOVE YOU!!", "Can you say happy birthday to my dad?", "YOURE THE BEST!!!!",
+				"SIGN MY PICTURE MANN" };
+		FanRequestsCollection requests = new FanRequestsCollection();
+		FanRequestsIterator iterator = requests.createIterator();
+		for (String request : fanRequests) {
+			requests.addRequest(new FanRequest(request));
+		}
+
+		// Iterating with step=1
+		System.out.println("Iterating every request in the requests list:");
+		for (FanRequest request = (FanRequest) iterator.First(); iterator
+				.hasNext(); request = (FanRequest) iterator.Next()) {
+			System.out.println(request);
+		}
+		// Iterating with step=2
+		System.out.println("Iterating every second request in the requests list:");
+		iterator.step = 2;
+		for (FanRequest request = (FanRequest) iterator.First(); iterator
+				.hasNext(); request = (FanRequest) iterator.Next()) {
+			System.out.println(request);
+		}
+		System.out.println();
+		System.out.println();
+
+		/* State Pattern: */
+		TeamTactics tactics = new TeamTactics();
+		System.out.println("Game start, result = 0-0");
+		System.out.println(tactics);
+		System.out.println("Concended goal, 30th minute, result = 0-1");
+		tactics.attack();
+		System.out.println("--Change state-- " + tactics);
+		System.out.println("Concended goal, 50th minute, result = 0-2");
+		tactics.attack();
+		System.out.println("--Change state-- " + tactics);
+		System.out.println("Scored goal, 55th minute, result = 1-2");
+		System.out.println("Scored goal, 80th minute, result = 2-2");
+		tactics.defend();
+		System.out.println("--Change state-- " + tactics);
+		System.out.println("Scored goal, 90th minute, result = 3-2");
+		tactics.defend();
+		tactics.defend();
+		tactics.defend();
+		tactics.defend();
+		System.out.println("--Change state-- " + tactics);
 
 	}
 }
