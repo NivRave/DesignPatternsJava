@@ -269,12 +269,13 @@ public class Main {
 		IInvestor bargainInvestor = new BargainInvestor();// Create concrete observer instance
 		IInvestor watcher = new Watcher();// Create concrete observer instance
 		IInvestor shortInvestor = new ShortInvestor();// Create concrete observer instance
-		meta.attach(shortInvestor);// Attach observer to subject
-		meta.attach(bargainInvestor);// Attach observer to subject
-		meta.attach(watcher);// Attach observer to subject
-		amazon.attach(shortInvestor);// Attach observer to subject
-		amazon.attach(bargainInvestor);// Attach observer to subject
-		amazon.attach(watcher);// Attach observer to subject
+		//// Attach observers to subjects
+		meta.attach(shortInvestor);
+		meta.attach(bargainInvestor);
+		meta.attach(watcher);
+		amazon.attach(shortInvestor);
+		amazon.attach(bargainInvestor); 
+		amazon.attach(watcher);
 		// Various price changes - each change activates update() in subject and than
 		// update() for each observer attached to it. The following actions are defined
 		// for each observer according to its own conditions
@@ -289,7 +290,8 @@ public class Main {
 
 		/* Command Pattern: */
 		System.out.println("The output for the Command pattern example:");
-		User calculatorUser = new User();
+		User calculatorUser = new User(); //Create the User instance to use the calculator
+		//Perform regular mathematical actions
 		calculatorUser.printCalculatorValue();
 		calculatorUser.compute('+', 100);
 		calculatorUser.printCalculatorValue();
@@ -299,8 +301,10 @@ public class Main {
 		calculatorUser.printCalculatorValue();
 		calculatorUser.compute('/', 20);
 		calculatorUser.printCalculatorValue();
+		//Perform some Undo actions
 		calculatorUser.undo(2);
 		calculatorUser.printCalculatorValue();
+		//perform a Redo action
 		calculatorUser.redo(1);
 		calculatorUser.printCalculatorValue();
 		System.out.println();
@@ -308,15 +312,17 @@ public class Main {
 
 		/* Iterator Pattern: */
 		System.out.println("The output for the Iterator pattern example:");
+		//A string array holding different requests delivered to a person that he wants to iterate through in various manners
 		String fanRequests[] = { "Please send me a selfie!", "Please sign my photo!", "Come for a drink?",
 				"Please say hi!", "I LOVE YOU!!", "Can you say happy birthday to my dad?", "YOURE THE BEST!!!!",
 				"SIGN MY PICTURE MANN" };
+		//Create and fill the requests collection
 		FanRequestsCollection requests = new FanRequestsCollection();
-		FanRequestsIterator iterator = requests.createIterator();
 		for (String request : fanRequests) {
 			requests.addRequest(new FanRequest(request));
 		}
-
+		//Create the iterator and perform iterations on the received requests
+		FanRequestsIterator iterator = requests.createIterator();
 		// Iterating with step=1
 		System.out.println("Iterating every request in the requests list:");
 		for (FanRequest request = (FanRequest) iterator.First(); iterator
@@ -335,24 +341,24 @@ public class Main {
 
 		/* State Pattern: */
 		System.out.println("The output for the State pattern example:");
-		TeamTactics tactics = new TeamTactics();
+		TeamTactics tactics = new TeamTactics();//The team's current tactics, set to Balanced by default
 		System.out.println("Game start, result = 0-0");
 		System.out.println(tactics);
 		System.out.println("Concended goal, 30th minute, result = 0-1");
-		tactics.attack();
+		tactics.attack();//Respond to game state, change tactics state
 		System.out.println("--Change state-- " + tactics);
 		System.out.println("Concended goal, 50th minute, result = 0-2");
-		tactics.attack();
+		tactics.attack();//Respond to game state, change tactics state
 		System.out.println("--Change state-- " + tactics);
 		System.out.println("Scored goal, 55th minute, result = 1-2");
 		System.out.println("Scored goal, 80th minute, result = 2-2");
-		tactics.defend();
+		tactics.defend();//Respond to game state, change tactics state
 		System.out.println("--Change state-- " + tactics);
 		System.out.println("Scored goal, 90th minute, result = 3-2");
-		tactics.defend();
-		tactics.defend();
-		tactics.defend();
-		tactics.defend();
+		tactics.defend();//Respond to game state, change tactics state
+		tactics.defend();//Respond to game state, change tactics state
+		tactics.defend();//Respond to game state, change tactics state
+		tactics.defend();//Respond to game state, change tactics state - Failed attempt!
 		System.out.println("--Change state-- " + tactics);
 
 	}
