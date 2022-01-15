@@ -1,0 +1,21 @@
+The Strategy design pattern belongs to the Behavioral patterns family.
+It allows us to define a family of algorithms, encapsulate each one and allow different
+algorithm selection during runtime
+
+It is useful when:
+	There us different strategies for a single interface
+	Creating a 'plug and play' funcionality
+	Different algorithms for the same situation might be used during runtime
+		
+The example used in this project:
+	A traveler uses a navigation system to navigate between Paris and london.
+	The systems suggests 3 different travel routes (strategies):
+	Direct drive/Direct flight/Drive to another middle point and than fly. 
+	
+The structure and pattern participants in this example:
+	Context: Navigate
+	Strategy: INavigationStrategy
+	ConcreteStrategy: DirectDriveNavigation, DirectFlightNavigation, DriveFlyNavigation
+	
+Wikipedia link:
+https://en.wikipedia.org/wiki/Strategy_pattern

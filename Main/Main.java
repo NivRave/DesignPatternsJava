@@ -263,6 +263,7 @@ public class Main {
 		System.out.println();
 
 		/* Observer Pattern: */
+		System.out.println("The output for the Observer pattern example:");
 		Stock meta = new META(100);// Create concrete subject instance
 		Stock amazon = new AMAZON(80);// Create concrete subject instance
 		IInvestor bargainInvestor = new BargainInvestor();// Create concrete observer instance
@@ -287,6 +288,7 @@ public class Main {
 		System.out.println();
 
 		/* Command Pattern: */
+		System.out.println("The output for the Command pattern example:");
 		User calculatorUser = new User();
 		calculatorUser.printCalculatorValue();
 		calculatorUser.compute('+', 100);
@@ -305,6 +307,7 @@ public class Main {
 		System.out.println();
 
 		/* Iterator Pattern: */
+		System.out.println("The output for the Iterator pattern example:");
 		String fanRequests[] = { "Please send me a selfie!", "Please sign my photo!", "Come for a drink?",
 				"Please say hi!", "I LOVE YOU!!", "Can you say happy birthday to my dad?", "YOURE THE BEST!!!!",
 				"SIGN MY PICTURE MANN" };
@@ -331,6 +334,7 @@ public class Main {
 		System.out.println();
 
 		/* State Pattern: */
+		System.out.println("The output for the State pattern example:");
 		TeamTactics tactics = new TeamTactics();
 		System.out.println("Game start, result = 0-0");
 		System.out.println(tactics);

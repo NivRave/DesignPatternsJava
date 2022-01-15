@@ -1,0 +1,24 @@
+The State design pattern belongs to the Behavioral patterns family.
+It allows an object to change its behavior when its internal state changes,
+while encapsulating varying behavior for the same object.
+
+It is useful when:
+	The object's behavior depends on its state and must be changed on runtime when the state changes.
+	The object's state-specific behavior is defined independently and adding new states should not affect the existing ones.
+		
+The example used in this project:
+	Football teams play in different tactical approach and change them according to the result and stage
+	of the match. A team will seek to attack when behind, defend when leading or apply a very attacking
+	or very defending approach in different conditions.
+	In the given example, the match starts with balanced tactics, changes to more attacking when behind
+	and super attacking when behind by two goals. When the team scores and evens the result, they change
+	their approach to a more balanced one, and when leading by a goal, nearing the end of the match, the
+	team decides to 'park the bus' and defend as hard as they can to keep the result and get the win.
+	
+The structure and pattern participants in this example:
+	State: ITacticalState
+	Concrete State: AllOutAttackTactics, AttackingTactics, BalancedTactics, DefendingTactics, ParkTheBusTactics 
+	Context: TeamTactics
+	
+Wikipedia link:
+https://en.wikipedia.org/wiki/State_pattern

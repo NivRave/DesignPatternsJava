@@ -1,0 +1,22 @@
+The Composite Method design pattern belongs to the Structural patterns family.
+It allows a group of objects to be treated the same way as a single instance of the same object
+by composing objects into tree structures to represent part-whole hierarchies.
+
+It is useful when:
+	A tree structure of nodes and leaves is needed.
+	The system has a hierarchy structure.
+
+The example used in this project:
+	An operating system has files. A file (StoredItem) can be an instance of one of two groups:
+	A FileItem (picture, text file, etc..) or a DirectoryItem (a directory, zip file, etc..) when
+	a DirectoryItem is both a StoredItem and contains a group of StoredItems.
+	We can treat the directoryItem as a Node and a fileItem as a leaf.	
+	
+The structure and pattern participants in this example:
+	Component: StoredItem
+	Leaf: FileItem
+	Composite: DirectoryItem
+	Client: the user using the operating system in the Main file
+	
+Wikipedia link:
+https://en.wikipedia.org/wiki/Composite_pattern

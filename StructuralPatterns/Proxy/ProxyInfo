@@ -1,0 +1,24 @@
+The Proxy Method design pattern belongs to the Structural patterns family.
+It provides a substitute or placeholder for another object. The Proxy acts as an interface
+to other things, such as other files, servers, network connections and more.
+
+It is useful when:
+	The access to an object must be controlled/regulated.
+	Actions need to be performed in the request forwarding process, either before or after the request gets to its destination.
+
+The example used in this project:
+	We have a server that allows users to perform different actions - read and write.
+	The thing is - only an admin can write, while both regular users and admins can read.
+	The Proxy connects to the RealPerformAction where the action is performed but adds an
+	authentication logic (not really implemented, just as a boolean that says if an admin or a 
+	regular user tries to perform) so that permissions are checked and only the allowed actions 
+	are performed eventually.
+	
+The structure and pattern participants in this example:
+	Subject: IServerActions
+	RealSubject: RealPerformAction
+	Proxy: ProxyPerformAction
+	Client: the user/admin in the Main file
+	
+Wikipedia link:
+https://en.wikipedia.org/wiki/Proxy_pattern

@@ -1,9 +1,9 @@
 package StructuralPatterns.Adapter;
 
-public class FormatAdapter implements IFormatAdapter {
+public class FormatAdapter implements IEUFormat {
 
 	IUsFormat usFormatData;
-
+	
 	public FormatAdapter(IUsFormat usFormatData) {
 		this.usFormatData = usFormatData;
 	}

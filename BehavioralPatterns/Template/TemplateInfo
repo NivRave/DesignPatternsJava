@@ -1,0 +1,19 @@
+The Template design pattern belongs to the Behavioral patterns family.
+It defines the skeleton of an operation, creates a template in the superclass for 
+each subclass to follow but allows specific overriding/further expansion for the subclasses.
+
+It is useful when:
+	A large algorithm has some certain parts that may be changed without affecting or being affected by the large algorithm.
+	A base algorithm can be created by the base class but may need to be customized by derived classes.
+	
+The example used in this project:
+	A computer game (in this case, my top-3 all time strategy games if that matters..) has three phases in its playing life cycle:
+	Activation->start playing->finish playing. Each game in this example has its own story and gameplay (here - just different prints)
+	but they all follow the template provided by the ComputerGame.
+	
+The structure and pattern participants in this example:
+	AbstractClass: ComputerGame
+	ConcreteClass: AOE2Game, MTW2Game, RA2YGame
+	
+Wikipedia link:
+https://en.wikipedia.org/wiki/Template_method_pattern

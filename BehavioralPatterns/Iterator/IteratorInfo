@@ -1,0 +1,23 @@
+The X design pattern belongs to the X patterns family.
+It provides a way to traverse a collection/container and access its elements while decoupling the traversing 
+algorithm from the collection/container itself.
+
+It is useful when:
+	Custom traversal of some data is required
+	The input container can be implemented with different structures (array, arraylist, tree, etc.) 
+	
+The example used in this project:
+	A FanRequestsCollection contains a list of many requests sent to a famous person by his fans.
+	The person can't attend all the requests (and doesn't have to either..) so he uses the iterator to read
+	and attend only a part of the requests, iterating by an interval that he decides (every request, every second request, 
+	every 50th request etc..) instead of manually viewing and filtering the requests.
+
+The structure and pattern participants in this example:
+	Aggregate: IAbstractCollection
+	ConcreteAggregate: FanRequestsCollection
+	Iterator: IAbstractIterator
+	ConcreteIterator: FanRequestsIterator 
+	Client: user in Main class
+	
+Wikipedia link:
+https://en.wikipedia.org/wiki/Iterator_pattern

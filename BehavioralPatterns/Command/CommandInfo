@@ -1,0 +1,23 @@
+The Command design pattern belongs to the Behavioral patterns family.
+It encapsulates a request/command as an object holding all the required information to perform/trigger an event at a later time. 
+
+It is useful when:
+	We might want to queue/delay/schedule actions.
+	We want to implement undo/redo or save the history of the actions taken/command performed.
+
+The example used in this project:
+	There is a simple calculator that can handle 4 mathematical operations: +,-,*,/., while maintaining the history
+	of the actions performed so that the user can undo some actions, if a mistake was made when trying to calculate or
+	for any other reason. The user is also allowed to redo any undone action.
+	The user sends the desired operation and the calculator performs.
+	The calculator returns the current calculated value (staring at value=0 by default)
+
+The structure and pattern participants in this example:
+	Command: ICommand
+	ConcreteCommand: AddCommand, SubstractCommand, MultiplyCommand, DivideCommand
+	Receiver: Calculator
+	Invoker: CommandsManager
+	Client: User
+	
+Wikipedia link:
+https://en.wikipedia.org/wiki/Command_pattern

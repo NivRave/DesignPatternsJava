@@ -1,0 +1,20 @@
+The Builder design pattern belongs to the Creational patterns family.
+It allows the construction of complex objects step by step while being separated
+from their representation.
+
+It is useful when:
+	A complex object creation is needed, with several steps for its creation, controlled by the client.
+	Different construction options are available, all having the same steps for constructing an object, all have many steps.
+	
+The example used in this project:
+	A burger restaurant has many combinations for a burger meal, all must have the same content:
+	A patty (beef/veggie/lamb), a side dish (salad/chips) and a drink (beer/soda).
+	The user can choose his combination and the meal will be prepared according to the algorithm.	
+
+The structure and pattern participants in this example:
+	Builder: BurgerMealBuilder
+	ConcreteBuilder (functions): prepareBeefChipsCoke(), prepareLambChipsCoke(), prepareBeefSaladsBeer(), prepareVeggieChipsBeer() 
+	Product: BurgerMeal
+	
+Wikipedia link:
+https://en.wikipedia.org/wiki/Builder_pattern

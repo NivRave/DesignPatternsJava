@@ -1,0 +1,22 @@
+The Adapter Method design pattern belongs to the Structural patterns family.
+It converts the interface of a class into another interface the client knows.
+
+It is useful when:
+	We need to adapt the output/input to a new client.
+	We need to adapt the output/input of a new component.
+	Create a new, common interface between different collaborating components.
+
+The example used in this project:
+	Our system knows how to process fitness data in a EU metric format but we work with
+	an external customer that only provides data in a US metric format. We use and adapter
+	to covert the US units to EU units that our system knows to get the correct results.
+	We convert mph->kmh and pounds->kg 
+	
+The structure and pattern participants in this example:
+	Target: IEUFormat
+	Adapter: formatAdapter
+	Adaptee: IUsFormat
+	Client: user on Main file.
+
+Wikipedia link:
+https://en.wikipedia.org/wiki/Adapter_pattern

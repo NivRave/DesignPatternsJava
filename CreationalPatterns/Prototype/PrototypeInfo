@@ -1,0 +1,21 @@
+The Prototype Method design pattern belongs to the Creational patterns family.
+It allows creation of new objects based on a known prototypical instance.
+
+It is useful when:
+	We anticipate the creation of many objects with the same properties.
+	We anticipate the creation of clones of various instances.
+
+The example used in this project:
+	A strategy game allows us to create different types of units.
+	Each new unit created will have its own instance but has to be a clone of the created type.
+	The user, in this current stage of the game, may create Archers/Infantry/Knights.
+	A prototype of each unit type is stored in the user's barracks (UnitPrototypesCache object)
+	and on each creation request a new clone is created and sent to the field.
+	
+The structure and pattern participants in this example:
+	Prototype: Unit
+	ConcretePrototype: Archer, Infantry, Knight
+	Client: UnitProrotypesCache
+
+Wikipedia link:
+https://en.wikipedia.org/wiki/Prototype_pattern

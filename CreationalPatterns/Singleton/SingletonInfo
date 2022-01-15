@@ -1,0 +1,20 @@
+The Singleton Method design pattern belongs to the Creational patterns family.
+It ensures that a class will have only one instance and provide a point of access to it.
+
+It is useful when:
+	An object type can have only one instance.
+	The only created instance must be accessible everywhere.
+
+The example used in this project:
+	Our system has a logger object that logs actions. It can be accessed by many users
+	but there can only be one logger to avoid duplications, overriding, deletion and more.
+	The first user that tries to create a logger will create it and every other new creation
+	attempt will result in returning the only instance. The getInstance() method
+	is made synchronized so that multiple threads can’t access it simultaneously.
+	
+The structure and pattern participants in this example:
+	Singleton: Logger
+	Creation method: getInstance()
+
+Wikipedia link:
+https://en.wikipedia.org/wiki/Singleton_pattern

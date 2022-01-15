@@ -1,0 +1,18 @@
+The Decorator Method design pattern belongs to the Structural patterns family.
+It allows behavior to be attached/added to an object dynamically.
+
+It is useful when:
+	Objects' behavior can be extended during runtime
+
+The example used in this project:
+	Our nice, old fashioned Honda is great with its stock components.
+	If we install turbo, we add it to our car and than it almost flies!
+	
+The structure and pattern participants in this example:
+	Component: ICar
+	ConcreteComponent: HondaCar
+	Decorator: CarDecorator
+	ConcreteDecorator: TurboCarDecorator
+	
+Wikipedia link:
+https://en.wikipedia.org/wiki/Decorator_pattern

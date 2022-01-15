@@ -1,0 +1,24 @@
+The Observer design pattern belongs to the Behavioral patterns family.
+It defines a one-to-many dependency between objects so that when a specific object
+(called the subject) changes state, all it's dependents are notified of the change.
+
+It is useful when:
+	A change of state of an object affects other objects in the system
+	We need to establish relations and dependencies between objects in runtime
+		
+The example used in this project:
+	We have different stock market investors.
+	Each investor invests according to his own strategy, but all of them need to
+	be notified when the stocks they follow (own or just watching) change their value.
+	The investors are able to "subscribe" to a stock so that when its price changes
+	each investor subscribed to it is notified and acts according to his own strategy.
+	An investor may watch many stocks and each stock can have many investors as observers.
+	
+The structure and pattern participants in this example:
+	Subject: Stock
+	ConcreteSubject: META, AMAZON
+	Observer: IInvestor
+	ConcreteObserver: Watcher, BargainInvestor, ShortInvestor
+	
+Wikipedia link:
+https://en.wikipedia.org/wiki/Observer_pattern
